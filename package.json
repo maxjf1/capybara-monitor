@@ -22,5 +22,11 @@
   "bugs": {
     "url": "https://github.com/ufjf-dcc-071/capybara-monitor/issues"
   },
-  "homepage": "https://github.com/ufjf-dcc-071/capybara-monitor#readme"
+  "homepage": "https://github.com/ufjf-dcc-071/capybara-monitor#readme",
+  "devDependencies": {
+    "vtop": "^0.5.7"
+  },
+  "dependencies": {
+    "os-utils": "0.0.14"
+  }
 }
