@@ -6,7 +6,10 @@
   "scripts": {
     "setup": "npm install && npm prune",
     "update": "git pull && npm setup",
-    "test": "node index.js",
+    "watch": "babel -w src/ -d dist/",
+    "build": "babel src/ -d dist/",
+    "serve": "babel -w src/ -d dist/ | nodemon --watch dist",
+    "test": "babel-node test/index.js",
     "start": "node index.js"
   },
   "repository": {
@@ -24,6 +27,10 @@
   },
   "homepage": "https://github.com/ufjf-dcc-071/capybara-monitor#readme",
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "nodemon": "^1.11.0",
     "vtop": "^0.5.7"
   },
   "dependencies": {

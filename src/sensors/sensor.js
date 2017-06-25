@@ -1,7 +1,7 @@
 import os from 'os';
 
 const platform = os.platform();
-const isLinux = platform().includes('linux');
+const isLinux = platform.includes('linux');
 
 /**
  * Classe de sensor base
@@ -10,7 +10,7 @@ const isLinux = platform().includes('linux');
  *
  * @class Sensor
  */
-class Sensor {
+export default class Sensor {
 
     /**
      * Creates an instance of Sensor.

@@ -2,8 +2,7 @@
 import Sensor from './sensor';
 import ChildProcess from 'child_process';
 
-
-class MemorySensor extends Sensor {
+export default class MemorySensor extends Sensor {
     constructor() {
         super({
             title: 'Memory Sensor',

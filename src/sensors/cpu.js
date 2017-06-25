@@ -8,7 +8,7 @@ import OsUtils from 'os-utils';
  * @class CpuSensor
  * @extends {Sensor}
  */
-class CpuSensor extends Sensor {
+export default class CpuSensor extends Sensor {
     constructor() {
         super({
             title: 'CPU Sensor',
