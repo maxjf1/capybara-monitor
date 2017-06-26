@@ -21,21 +21,21 @@ export default class NetworkSensor extends Sensor {
                 var regexIfNames = new RegExp(/[0-9]+: ([\S]+): /g);
 
                 var stats = [];
-                var i = 0, totalIn = 0, totalOut = 0;
+                var i = 0, totalIn = 0, totalOut = 0, res;
 
-                while ((res = names.exec(out)) !== null) {
+                while ((res = regexIfNames.exec(out)) !== null) {
                     stats[i++] = {
                         interface: res[1]
                     };
                 }
 
-                var i = 0;
-                while ((res = RX.exec(out)) !== null) {
+                i = 0;
+                while ((res = regexRX.exec(out)) !== null) {
                     stats[i++].inputBytes = res[1];
                 }
 
-                var i = 0;
-                while ((res = TX.exec(out)) !== null) {
+                i = 0;
+                while ((res = regexTX.exec(out)) !== null) {
                     stats[i++].outputBytes = res[1];
                 }
 
