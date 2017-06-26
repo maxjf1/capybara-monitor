@@ -9,6 +9,7 @@ function logSystem(time = 2000) {
             console.log(data);
             return logSystem(time);
         })
+        .catch(err => console.error(err) || Promise.reject(err))
 }
 
 logSystem();

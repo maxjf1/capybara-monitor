@@ -2,7 +2,8 @@
 import Sensor, {
     CpuSensor,
     MemorySensor,
-    ProcessSensor
+    ProcessSensor,
+    NetworkSensor
 } from './index';
 
 
@@ -15,7 +16,8 @@ export default class SystemSensor extends Sensor {
         this.sensors = {
             cpu: new CpuSensor(),
             memory: new MemorySensor(),
-            processes: new ProcessSensor()
+            processes: new ProcessSensor(),
+            network: new NetworkSensor(),
         }
     }
 
@@ -32,13 +34,14 @@ export default class SystemSensor extends Sensor {
                 this.sensors.cpu.pool(),
                 this.sensors.memory.pool(),
                 this.sensors.processes.pool(),
+                this.sensors.network.pool(), // bug
                 this.wait(time)
             ])
-            .then(([cpu, memory, processes]) => ({
+            .then(([cpu, memory, processes, network]) => ({
                 cpu,
                 memory,
                 processes,
+                network
             }))
-            .catch(console.error)
     }
 }

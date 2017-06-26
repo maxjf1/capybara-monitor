@@ -23,19 +23,19 @@ export default class NetworkSensor extends Sensor {
                 var stats = [];
                 var i = 0, totalIn = 0, totalOut = 0, res;
 
-                while ((res = regexIfNames.exec(out)) !== null) {
+                while ((res = regexIfNames.exec(stdout)) !== null) {
                     stats[i++] = {
                         interface: res[1]
                     };
                 }
 
                 i = 0;
-                while ((res = regexRX.exec(out)) !== null) {
+                while ((res = regexRX.exec(stdout)) !== null) {
                     stats[i++].inputBytes = res[1];
                 }
 
                 i = 0;
-                while ((res = regexTX.exec(out)) !== null) {
+                while ((res = regexTX.exec(stdout)) !== null) {
                     stats[i++].outputBytes = res[1];
                 }
 

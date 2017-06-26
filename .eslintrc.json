@@ -1,0 +1,15 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+        "semi": 0,
+        "no-undefined": 1,
+        "no-regex-spaces": 1
+    }
+}
