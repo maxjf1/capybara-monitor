@@ -1,16 +1,34 @@
-const SystemSensor = require('./dist/sensors').SystemSensor
+import { SystemSensor } from './src/sensors'
 
-console.error(SystemSensor)
+import * as Utils from './src/utils'
+import express from 'express'
+
 
 const system = new SystemSensor();
+const app = express();
+let port = 3000
 
-function logSystem(time = 2000) {
-    return system
-        .pool(time)
-        .then(data => {
-            console.log(data);
-            return logSystem(time);
-        })
-}
 
-logSystem();
+app.use(express.static('./static'))
+app.use(express.static('./node_modules/uikit/dist'))
+app.use('/js', express.static('./node_modules/vue/dist'))
+app.use('/js', express.static('./node_modules/jquery/dist'))
+app.use('/js', express.static('./node_modules/bluebird/js/browser'))
+
+
+app.get('/api', (req, res) => {
+    system
+        .pool()
+        .then(data => res.send(data))
+        .catch(error => res.status(500).send({ error: error.toString() }))
+})
+
+
+Utils
+    .getPort()
+    .then(theport => new Promise(resolve => {
+        port = theport;
+        app.listen(port, resolve)
+    }))
+    .then(() => console.log('App Started on ' + port))
+    .catch(err => console.error('ERROR: ', err))

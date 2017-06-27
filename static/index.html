@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Monitoramento de sistema</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/uikit.css" rel="stylesheet">
+    <link href="css/components/progress.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="app" class="site">
+        <div class="uk-container uk-container-center uk-margin-top">
+            <h1><i class="uk-icon-bar-chart"></i> Monitoramento de sistema</h1>
+            <ul class="uk-tab" data-uk-tab="{connect:'#main-tab'}">
+                <li><a><i class="uk-icon-server"></i> CPU</a></li>
+                <li><a><i class="uk-icon-microchip"></i> RAM</a></li>
+                <li><a><i class="uk-icon-linux"></i> Processos</a></li>
+                <li><a><i class="uk-icon-signal"></i> Rede</a></li>
+            </ul>
+
+            <ul id="main-tab" class="uk-switcher uk-margin-top">
+                <li>
+                    <h2><i class="uk-icon-server"></i> CPU</h2>
+                    <div class="uk-progress uk-progress-striped uk-active">
+                        <div class="uk-progress-bar" v-bind:style="{ width: cpu + '%' }">{{cpu}}%</div>
+                    </div>
+                </li>
+                <li>
+                    <h2><i class="uk-icon-microchip"></i> RAM</h2>
+                    <dl class="uk-description-list-horizontal">
+                        <dt>Total:</dt>
+                        <dd><i class="uk-icon-microchip"></i> {{memory.total}}MB</dd>
+
+                        <dt>Em uso:</dt>
+                        <dd><i class="uk-icon-microchip"></i> {{memory.used}}MB</dd>
+
+                        <dt>Livre:</dt>
+                        <dd><i class="uk-icon-microchip"></i> {{memory.free}}MB</dd>
+                    </dl>
+                    <div class="uk-progress uk-progress-striped uk-active">
+                        <div class="uk-progress-bar" v-bind:style="{ width: memory.computed + '%' }">{{memory.computed}}%</div>
+                    </div>
+                </li>
+                <li>
+                    <h2><i class="uk-icon-linux"></i> Processos</h2>
+                    <ul class="uk-list uk-list-striped">
+                        <li v-for="process in processes">
+                            <strong>{{process.name}}</strong>
+                            <div><i class="uk-icon-server"></i> CPU: {{process.cpu}}%</div>
+                            <div><i class="uk-icon-microchip"></i> RAM: {{process.mem}}%</div>
+                        </li>
+                    </ul>
+
+                </li>
+
+                <li>
+                    <h2><i class="uk-icon-signal"></i> Rede</h2>
+                    <ul class="uk-list uk-list-striped">
+                        <li v-for="net in network">
+                            <span>Rede {{net.interface}}</span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script src="js/bluebird.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/uikit.js"></script>
+    <script src="js/vue.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
