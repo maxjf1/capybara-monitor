@@ -1,6 +1,15 @@
 # capybara-monitor
 System monitor tool
 
-Para configurar inicialmente, execute `npm run setup`
+# Execução
+
+Primeiramente, execute a instalação:
+
+`npm run setup`
+
+depois execute
+
+`npm start`
+
 Para compilar o código, execute `npm run build`
 para testar o código, execute `npm test`
