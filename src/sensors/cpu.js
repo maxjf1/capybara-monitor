@@ -18,7 +18,7 @@ export default class CpuSensor extends Sensor {
 
     pool() {
         return new Promise((resolve, reject) => {
-            OsUtils.cpuUsage(usage => resolve(usage));
+            OsUtils.cpuUsage(usage => resolve(Math.round(usage * 100)));
         });
     }
 }

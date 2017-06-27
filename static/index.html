@@ -49,9 +49,10 @@
                     <h2><i class="uk-icon-linux"></i> Processos</h2>
                     <ul class="uk-list uk-list-striped">
                         <li v-for="process in processes">
-                            <strong>{{process.name}}</strong>
-                            <div><i class="uk-icon-server"></i> CPU: {{process.cpu}}%</div>
-                            <div><i class="uk-icon-microchip"></i> RAM: {{process.mem}}%</div>
+                            <strong>{{process.name}}</strong><div>
+                            <i class="uk-icon-server"></i> CPU: {{process.cpu}}%
+                            <i class="uk-icon-microchip"></i> RAM: {{process.mem}}%
+                            </div>
                         </li>
                     </ul>
 
@@ -61,7 +62,9 @@
                     <h2><i class="uk-icon-signal"></i> Rede</h2>
                     <ul class="uk-list uk-list-striped">
                         <li v-for="net in network">
-                            <span>Rede {{net.interface}}</span>
+                            <span>Interface {{net.interface}}</span><br>
+                            <span>Bytes In: {{net.inputBytes}} B</span>
+                            <span>Bytes Out: {{net.outputBytes}} B</span>
                         </li>
                     </ul>
                 </li>
