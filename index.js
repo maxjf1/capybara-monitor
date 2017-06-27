@@ -2,6 +2,7 @@ import { SystemSensor } from './src/sensors'
 
 import * as Utils from './src/utils'
 import express from 'express'
+import opn from 'opn'
 
 
 const system = new SystemSensor();
@@ -23,6 +24,9 @@ app.get('/api', (req, res) => {
         .catch(error => res.status(500).send({ error: error.toString() }))
 })
 
+function openBrowser() {
+    opn('http://localhost:' + port)
+}
 
 Utils
     .getPort()
@@ -30,5 +34,6 @@ Utils
         port = theport;
         app.listen(port, resolve)
     }))
-    .then(() => console.log('App Started on ' + port))
-    .catch(err => console.error('ERROR: ', err))
+    .then(() => console.log('App iniciado em localhost:' + port))
+    .then(openBrowser)
+    .catch(err => console.error('ERRO: ', err))
