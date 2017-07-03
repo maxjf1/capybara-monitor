@@ -14,7 +14,7 @@ export default class MemorySensor extends Sensor {
 
         return new Promise((resolve, reject) => {
             // obtem o status da memória pelo comando free -m
-            ChildProcess.exec('free -m', (err, stdout, stderr) => {
+            ChildProcess.exec('free -m', (err, stdout) => {
                 // trata erros
                 if (err)
                     return reject(err);

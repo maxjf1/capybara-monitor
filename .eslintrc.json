@@ -9,7 +9,9 @@
     "extends": "eslint:recommended",
     "rules": {
         "semi": 0,
-        "no-undefined": 1,
-        "no-regex-spaces": 1
+        "no-undefined": "warn",
+        "no-regex-spaces": "warn",
+        "no-console": 0,
+        "no-undef":"warn"
     }
 }
