@@ -35,5 +35,5 @@ Utils
         app.listen(port, resolve)
     }))
     .then(() => console.log('App iniciado em localhost:' + port))
-    .then(openBrowser)
+    // .then(openBrowser)
     .catch(err => console.error('ERRO: ', err))

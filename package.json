@@ -10,7 +10,8 @@
     "build": "babel src/ -d dist/",
     "serve": "babel -w src/ -d dist/ | nodemon --watch dist",
     "test": "babel-node test/index.js",
-    "start": "babel-node index.js"
+    "start": "babel-node index.js",
+    "docker": "npm run setup && npm start"
   },
   "repository": {
     "type": "git",
