@@ -33,7 +33,7 @@ para testar o código, execute `npm test`
 
 O projeto possui apenas duas rotas, a raíz, que ira carregar a interface WEB, e a rota `/api` que fornece todos os dados do sistema:
 
-```json
+```javascript
 {
     "cpu": 36,          // Uso de CPU em %
     "memory": {         // uso de memória em MB
